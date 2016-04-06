@@ -1,0 +1,76 @@
+
+.Manager {
+	.clearfix();
+	.border-top-radius(4px);
+	background-color: #333;
+	border-color: #222;
+	margin-bottom: 0;
+	max-height: 48px;
+	
+	form {
+		.clearfix();
+		padding: 7px;
+
+		.manager-col-left {
+			.pull-left();
+			display: inline-table;
+
+			&.col_normal {
+				width: auto;
+			}
+			&.col_large {
+				width: 100%;
+			}
+
+			.locker {
+				.pull-left();
+				margin-right: 7px;
+			}
+
+			.searchInput {
+				.border-right-radius(4px);
+			    background-color: transparent;
+			    border: 1px solid transparent;
+			    box-shadow: none;
+			    font-size: 12pt;
+			    // Ellipsis si la string est tronquée à l'affichage, 
+			    // inline-block et max-width requis pour le mixin
+			    // FIXME c'est à cause de cette taille fixe qu'il y a tout un mic mac 
+			    // pour les effets de slide du champ input et le masquage des potards
+			    // est-ce que ca en vaut vraiment le coup ?
+			    display: inline-block;
+			    max-width: 187px;
+			    .text-overflow();
+
+			    &:hover {
+			    	border: 1px solid #676767;
+			    	box-shadow: 0 1px 6px rgba(0, 0, 0, 0.4) inset;
+			    }
+
+			    &:focus {
+			    	.border-right-radius(0);
+				    border-color: rgba(238, 162, 54, 0.8);
+				    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(238, 162, 54, 0.6);
+				    color: #cbcbcb;
+				    max-width: 100%;
+				}
+
+				.active {
+					.border-right-radius(0);
+				    border-right: medium none;
+				}
+			}
+
+			.searchBtn {
+				opacity: 0;
+			}
+		}
+
+		.manager-col-right {
+			.pull-right();
+			.toolAlert {
+				display: none;
+			}
+		}
+	}
+}
