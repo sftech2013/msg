@@ -1,0 +1,82 @@
+{
+    "name": "LIVE",
+    "description": "Gestion et broadcast de vos SMS et messages Twitter sur écrans multiples",
+    "repository": "https://github.com/sftech2013/live",
+    "logo": "http://142.4.203.231/logo/logo-binv_150.png",
+    "keywords": ["python", "twitter", "SMS"],
+    "success_url": "/user/welcome",
+    "env": {
+        "BUILDPACK_URL": "https://github.com/ddollar/heroku-buildpack-multi.git",
+        "SECRET_KEY": {
+            "description": "Clé secrète de votre installation",
+            "generator": "secret"
+        },
+        "HEROKU": {
+            "value": "1"
+        },
+        "DEBUG": {
+            "value": "True"
+        },
+        "DESIGNER": {
+            "description": "Activation du mode Desginer",
+            "value": "True"
+        },
+        "SERVER_CONFIG": {
+            "description": "Configuration: remplacez <app-name> par le nom de votre application. Laissez le port vide.",
+            "value": "{\"host\":\"<app-name>.herokuapp.com\",\"port\":\"\"}"
+        },
+        "API_KEY": {
+            "description": "API_KEY de votre application Twitter",
+            "value": "",
+            "required": false
+        },
+        "API_SECRET": {
+            "description": "API_SECRET de votre application Twitter",
+            "value": "",
+            "required": false
+        },
+        "ACCESS_TOKEN": {
+            "description": "ACCESS_TOKEN de votre application Twitter",
+            "value": "",
+            "required": false
+        },
+        "ACCESS_TOKEN_SECRET": {
+            "description": "ACCESS_TOKEN_SECRET de votre application Twitter",
+            "value": "",
+            "required": false
+        },
+        "EMBEDLY_KEY": {
+            "description": "Votre clé d'accès à l'API Embed.ly",
+            "value": "",
+            "required": false
+        },
+        "PHONE_TOKEN": {
+            "description": "Cette clé sera a reporter dans votre grabber SMS",
+            "generator": "secret"
+        },
+        "S3_BUCKET_NAME": {
+            "description": "Nom de votre bucket Amazon S3",
+            "value": "",
+            "required": false
+        },
+        "S3_BUCKET_DOMAIN": {
+            "description": "Nom de domaine de votre bucket Amazon S3",
+            "value": "s3-eu-west-1.amazonaws.com",
+            "required": false
+        },
+        "AWS_ACCESS_KEY_ID": {
+            "description": "Votre clé Amazon S3",
+            "value": "",
+            "required": false
+        },
+        "AWS_SECRET_ACCESS_KEY": {
+            "description": "Votre secret Amazon S3",
+            "value": "",
+            "required": false
+        },
+        "PATH": "/usr/local/bin:/usr/bin:/bin:/app/vendor/phantomjs/bin"
+    },
+    "addons": [
+        "mongolab:sandbox"
+    ]
+}

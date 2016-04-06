@@ -1,0 +1,3 @@
+https://github.com/heroku/heroku-buildpack-python.git#3dbeec8db10ccb523fdd829e3eac6ed77acb3b2c
+https://github.com/stomita/heroku-buildpack-phantomjs.git#93bcbc52042b1edf110481906ef90aa43c0925fc
+https://github.com/heroku/heroku-buildpack-nodejs.git#b659a6ce4f8feaea6fb41d4b9843b32ccc47eca5

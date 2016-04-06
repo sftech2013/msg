@@ -1,0 +1,49 @@
+{
+  "name": "Live Message",
+  "dependencies": {
+    "jquery": "~2.1.3",
+    "bootstrap": "~3.3.1",
+    "underscore": "~1.6.0",
+    "backbone": "~1.1.2",
+    "marionette": "~2.4.1",
+    "jqueryui": "~1.11.2",
+    "lodash": "~3.9.3",
+    "Backbone.validateAll": "*",
+    "socket.io-client": "0.9.16",
+    "requirejs": "~2.1.15",
+    "moment": "~2.9.0",
+    "embedly-jquery": "~3.1.2",
+    "Backbone.Chooser": "git://github.com/brian-mann/Backbone.Chooser.git",
+    "backbone.syphon": "~0.4.1",
+    "jquery.scrollTo": "~1.4.14",
+    "requirejs-text": "~2.0.13",
+    "twitter-text": "~1.10.0",
+    "spectrum": "~1.6.0"
+  },
+  "exportsOverride": {
+    "Backbone.validateAll": {
+      "others": "src/javascripts/Backbone.validateAll.js"
+    },
+    "socket.io-client": {
+      "others": "dist/socket.io.js"
+    },
+    "moment": {
+      "others": [
+        "moment.js",
+        "locale/fr.js"
+      ]
+    },
+    "embedly-jquery": {
+      "others": "jquery.embedly.js"
+    },
+    "Backbone.Chooser": {
+      "others": "build/backbone-chooser.js"
+    },
+    "backbone.syphon": {
+      "others": "lib/amd/backbone.syphon.js"
+    },
+    "requirejs-text": {
+      "others": "text.js"
+    }
+  }
+}
