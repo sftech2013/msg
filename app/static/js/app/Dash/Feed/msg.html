@@ -1,0 +1,56 @@
+<div class="menu pull-right btn-group btn-group-sm">
+	<% if(!_.isNull(medias) && medias.length){ %>
+		<% _.each(medias, function(media, index){ %>
+			<button type="button" class="med btn btn-default" data-lindex="<%= index %>">
+				<img src="<%= media.media_url %>:<%= media.thumb_urlparam %>" style="height: 29px; margin: -8px -10px; width: 32px;" />
+			</button>
+		<% }); %>
+	<% } %>
+	<% if(!_.isNull(links) && links.length){ %>
+		<% _.each(links, function(link, index){ %>
+			<% var embeded = link['embedly']; %>
+			<% if(!_.isUndefined(embeded) ){ %>
+				<button type="button" class="emb btn btn-default" data-lindex="<%= index %>">
+				<% if(embeded.thumbnail_url){ %>
+					<img src="<%= embeded.thumbnail_url %>" style="height: 29px; margin: -8px -10px; width: 32px;" />
+				<% }else{ %>
+					<span class="glyphicon glyphicon-link"></span>
+				<% } %>
+				</button>
+			<% }else{ %>
+				<button type="button" class="links btn btn-default" data-lindex="<%= index %>">
+					<span class="glyphicon glyphicon-cog"></span>
+				</button>
+			<% } %>
+		<% }); %>
+	<% } %>
+	<button type="button" class="btn btn-default bubble"><span class="glyphicon glyphicon-comment"></span></button>
+	<button type="button" class="btn btn-default<%= stared ? ' btn-warning' : '' %> stared"><span class="glyphicon glyphicon-star"></span></button>
+	<button type="button" class="btn btn-<%= visible ? 'default' : 'warning' %> visible"><span class="glyphicon glyphicon-lock"></span></button>
+</div>
+
+<div class="avatar pull-left">
+	<a href="http://twitter.com/<%= author %>" target="_blank">
+		<img class="media-object" src="<%= avatar %>">
+	</a>
+	<div class="masked">
+		<a href="javascript:void(0);" class="banner">bann!</a>
+	</div>
+</div>
+
+<div class="media-body">
+	<div class="content">
+		<h4 class="media-heading">
+			<% if(provider != "SMS"){ %>
+				<a href="http://twitter.com/<%= author %>" target="_blank"><%= author %></a><br/>
+			<% }else{ %>
+				<a href="javascript:void(0);"><%= author %></a><br/>
+			<% } %>
+			<small class="date"><%= ctime_str %></small>
+		</h4>
+		<div class="message-body"><%= message_html %></div>
+	</div>
+</div> 
+
+
+

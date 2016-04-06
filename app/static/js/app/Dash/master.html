@@ -1,0 +1,42 @@
+<ul class="nav navbar-nav navbar-right">
+	<li class="btn-dashmaster">
+		<a href="javascript:void(0);" class="scroll-left"><span class="glyphicon glyphicon-chevron-left"></span></a>
+	</li>
+	<li class="btn-dashmaster">
+		<a href="javascript:void(0);" class="scroll-right"><span class="glyphicon glyphicon-chevron-right"></span></a>
+	</li>
+	<li class="hidden dropdown btn-warning hidden-xs hidden-sm">
+		<a id="RaceList" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;&nbsp; Ajouter</a>
+		<ul id="dashMasterList" class="dropdown-menu" role="menu" aria-labelledby="RaceList">
+		</ul>
+	</li>
+</ul>
+
+
+<form id="twitterStatus" class="navbar-form navbar-left hidden-xs hidden-sm" role="form">
+	<div class="row">
+
+
+		<% if (typeof(twitter_account) != 'undefined') { %>
+
+			<div class="container-avatar form-group pull-left col-md-1">
+				<!-- On tape sur window.twitter_account là ... @todo: Passer à un vrai profil User -->
+				<img src="<%= twitter_account.profile_image_url %>" alt="..." class="avatar img-thumbnail">
+			</div>
+			<div class="form-group col-md-8">
+				<input type="text" class="form-control" id="body-tweet" placeholder="Envoyez un Tweet !">
+			</div>
+			<div class="form-group col-md-3">
+				<!-- <label id="count-tweet-length" for="submit-tweet">140</label> -->
+				<input type="text" class="form-control" id="count-tweet-length" disabled>
+				<button id="submit-tweet" type="submit" class="send-tweet btn btn-default">Send</button>
+			</div>
+
+		<% } else{ %>
+		<div class="">
+			Pas de compte twitter configuré
+		</div>
+		<% } %>
+
+	</div>
+</form>

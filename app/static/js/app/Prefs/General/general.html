@@ -1,0 +1,118 @@
+
+<form class="form-horizontal" role="form" action="javascript:void(0);">
+	<div class="section">
+		<div class="section-header">
+			<div class="submit-banner" style="">
+				<button class="btn btn-blacky submit active" type="submit">Enregistrer</button>
+
+				<a href="#filter/status/started,stopped" class="backDash btn btn-success active" style="display: none;">
+					<span class="glyphicon glyphicon-check"></span> Retour au Dashboard
+				</a>
+			</div>
+		</div>
+
+
+
+		<div class="section-content">
+
+			<h3>Mise en pause</h3>
+		 	<div class="form-group">
+		 		<label for="textareaPause" class="col-sm-2 control-label">Message de pause</label>
+			 	<div class="col-sm-10">
+			 		<textarea name="msg_pause" class="form-control tarea" id="textareaPause" rows="8"><%= msg_pause %></textarea>
+			 		<p class="help-block">Ce texte apparait dans une bulle sur tous les écrans publics lorsque vous mettez le live en pause (cliquez sur le bouton 'play' vert dans le menu de gauche)</p>
+			 	</div>
+			</div>
+
+
+			<h3>Retweets</h3>
+		 	<div class="form-group">
+
+				<label class="col-sm-2 control-label">Afficher les RT</label>
+				<div class="col-sm-10">
+					<div class="row">
+						<div class="col-xs-6">
+							<div class="btn-group" data-toggle="buttons">
+								<label id="retweeton" class="retweets btn btn-blacky<%= (retweet) ? ' active' : '' %>" toggle-target="#retweetoff">
+									<input type="checkbox" name="retweet" <%= (retweet) ? ' checked' : '' %> > Afficher
+								</label>
+								<label id="retweetoff" class="retweets btn btn-blacky<%= (retweet) ? '' : ' active' %>" toggle-target="#retweeton">
+									<input type="checkbox" <%= (retweet) ? '' : ' checked' %> > Masquer
+								</label>
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<span class="pull-right label label-danger">Nécessite un redémarrage du Stream</span>
+						</div>
+					</div>
+					<p class="help-block">Durée d'affichage des bulles exprimée en secondes.</p>
+				</div>
+			</div>
+
+			
+
+			<h3>Bulles <small>Mises en valeur des messages et de leur contenu</small></h3>
+			<div class="form-group">
+				<label for="inputBubbleTimeout" class="col-sm-2 control-label">Durée d'affichage</label>
+				<div class="col-sm-10">
+					<div class="row">
+						<div class="col-xs-2">
+							<input type="number" name="bubble_timeout" class="form-control" id="inputBubbleTimeout" value="<%= bubble_timeout %>">
+						</div>
+					</div>
+					<p class="help-block">Durée d'affichage des bulles exprimée en secondes.</p>
+				</div>
+			</div>
+
+			
+
+			<h3>Embed.ly <small>Affichage de vidéos, photos, ...</small></h3>
+			<div class="form-group">
+				<label for="inputEmbedly" class="col-sm-2 control-label">Clé API</label>
+				<div class="col-sm-10">
+					<input type="text" name="embedly_key" class="form-control" id="inputEmbedly" value="<%= embedly_key %>">
+					<p class="help-block">Vous trouverez votre clé sur <a href="http://embed.ly" target="_blank">embed.ly</a></p>
+				</div>
+			</div>
+
+
+			<h3>Informations</h3>
+		 	<div class="form-group">
+		 		<label for="inputTitle" class="col-sm-2 control-label">Titre</label>
+			 	<div class="col-sm-10">
+			 		<input type="text" name="title" class="form-control" id="inputTitle" value="<%= title %>">
+			 		<p class="help-block">Le nom de votre application</p>
+			 	</div>
+			</div>
+
+			<hr/>
+
+		 	<div class="form-group">
+		 		<label for="textareaDesc" class="col-sm-2 control-label">Message d'accueil</label>
+			 	<div class="col-sm-10">
+			 		<textarea name="desc" class="form-control tarea" id="textareaDesc" rows="8"><%= desc %></textarea>
+			 		<p class="help-block">Ce texte apparait sur la page d'accueil de votre application, vous pouvez le personnaliser pour qu'il corresponde à vos besoins (HTML accepté)</p>
+			 	</div>
+			</div>
+
+		</div>
+
+
+
+		<div class="section-footer">
+			<div class="submit-banner" style="">
+				<button class="btn btn-blacky submit active" type="submit">Enregistrer</button>
+
+				<a href="#filter/status/started,stopped" class="backDash btn btn-success active" style="display: none;">
+					<span class="glyphicon glyphicon-check"></span> Retour au Dashboard
+				</a>
+			</div>
+		</div>
+	</div>
+
+
+	
+	
+
+</form>
+

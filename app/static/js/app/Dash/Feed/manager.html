@@ -1,0 +1,56 @@
+
+<div class="manager-col-left col_normal">
+	<div class="locker">
+		<button type="button" class="btnVisible btn btn-blacky <%= visible == 1 ? "" : "active" %>">
+			<span class="glyphicon glyphicon-lock"></span>
+		</button>
+	</div>
+
+	<div class="input-group hidden">
+		<button type="button" class="btn btn-<%= status == "stopped" ? "danger" : "default hide" %> start" <%= status == "started" ? 'disabled="disabled"' : "" %>>
+			<span class="glyphicon glyphicon-pause"></span>
+		</button>
+		<button type="button" class="btn btn-<%= status == "stopped" ? "default hide" : "success" %> stop" <%= status == "started" ? "" : 'disabled="disabled"' %>>
+			<span class="glyphicon glyphicon-play"></span>
+		</button>
+	</div>
+
+	<div class="input-group input-group-hashtags">
+		<input type="text" class="searchInput form-control" placeholder="#hashtag, mots-clés, ..." value="<%= hashtag_str %>">
+		<span class="searchBtn input-group-btn">
+			<button type="button" class="btn btn-blacky active" disabled>
+				<span class="glyphicon glyphicon-pencil"></span>
+			</button>
+		</span>
+	</div>
+</div>
+
+<div class="manager-col-right cr_large">
+	<div class="toolMenu btn-group ">
+		<button type="button" class="btnStared btn btn-blacky"><span class="glyphicon glyphicon-star"></span></button>
+		<div class="btn-group">
+			<button type="button" class="btn dropdown-toggle btn-blacky" data-toggle="dropdown">
+				<span class="glyphicon glyphicon-wrench"></span>
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu pull-right">
+				<!-- <li class="btnVisible visible-xs visible-sm"><a href="javascript:void(0);">Modération</a></li> -->
+				<li class="btnStared visible-xs visible-sm"><a href="javascript:void(0);">Favoris</a></li>
+				<li class="divider visible-xs visible-sm"></li>
+				<li><a href="#edit/<%= _id %>"><span class="glyphicon glyphicon-wrench"></span> Modifier</a></li>
+				<li><a href="javascript:void(0);" class="remove-messages"><span class="glyphicon glyphicon-trash"></span> Supprimer les messages</a></li>
+				<li class="divider"></li>
+				<li><a href="/wall/<%= _id %>/" target="_blank"><span class="glyphicon glyphicon-new-window"></span> ouvrir un Wall public</a></li>
+				<!-- <li><a href="/wall/tl/#timeline/<%= _id %>" target="_blank">Timeline des favoris</a></li> -->
+				<li class="divider"></li>
+				<li><a href="javascript:void(0);" class="remove-race"><span class="glyphicon glyphicon-remove"></span> Retirer du Dashboard</a></li>
+			</ul>
+		</div>
+	</div> <!-- toolMenu -->
+	<div class="pull-right toolAlert btn-group">
+		<button type="button" class="btn btn-danger bubbleCloser">
+			<span class="glyphicon glyphicon-comment"></span> Fermer
+		</button>
+	</div>
+</div>
+

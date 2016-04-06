@@ -1,0 +1,28 @@
+<% if(provider == 'TWITTER'){ %>
+<a class="pull-left" href="http://twitter.com/<%= author %>" target="_blank">
+	<img class="media-object" src="<%= avatar %>" alt="...">
+</a>
+<% } else if(provider == 'SMS'){ %>
+<a class="pull-left" href="javascript:void(0);">
+	<img class="media-object" src="<%= avatar %>" alt="...">
+</a>
+<% } %>
+<div class="media-body">
+	<div class="pull-right">
+		<a title="Libérez le Troll !" href="javascript:void(0);" class="closer btn btn-default btn-lg">
+			<span class="glyphicon glyphicon-remove"></span> 
+			<!-- Afficher -->
+		</a>
+	</div>
+	<div class="content">
+		<h4 class="media-heading">
+			<a href="http://twitter.com/<%= author %>" target="_blank"><%= author %></a> 
+			<small><%= provider %></small>
+		</h4>
+		<div class="message-body">
+		<% if(provider == 'TWITTER'){ %>
+			<%= provider_src.description %>
+		<% } %>
+		</div>
+	</div>
+</div> 

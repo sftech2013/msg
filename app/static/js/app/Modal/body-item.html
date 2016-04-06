@@ -1,0 +1,82 @@
+
+<a class="pull-left" href="http://twitter.com/<%= author %>">
+    <img class="media-object" src="<%= avatar %>" alt="...">
+</a>
+<div class="media-body">
+    <h4 class="media-heading">
+    <a href="http://twitter.com/<%= author %>">
+    <%= author %>
+    </a> 
+    <small><%= ctime_str %></small>
+    </h4>
+    <%= message_html %>
+</div> 
+
+<% if(preselec && preselec.type == 'media' && medias.length){ %>
+<hr style="margin-top: 5px;" />
+<div id="preselect" class="container">
+    <div class="row">
+        <img src="<%= medias[ preselec.index ].media_url %>" style="width: 100%; max-width: <%= medias[ preselec.index ].big_sizes.w %>px; height: auto;" />
+    </div>
+</div>
+<% } %>
+
+<% if(preselec && preselec.type == 'link' && links[preselec.index] ){ %>
+    <!-- Embedly -->
+    <hr style="margin-top: 5px;" />
+    <!-- // FIXME on test la présence soit d'un array soit d'une collec ... pas glop -->
+    <!--% var mbd = links[preselec.index]['embedly'] || links[preselec.index].get('embedly'); %-->
+    <% var mbd = links[preselec.index]['embedly']; %>
+    <div id="preselect" class="container">
+        <div class="row poster">
+
+            <!-- Traitement des links -->
+            <% if(mbd.type == 'link') { %>
+                <% if(mbd.thumbnail_url && mbd.thumbnail_width >= 250 ) { %>
+                    <img class="thumbnail" src="<%= mbd.thumbnail_url %>" style="width: 100%; max-width: <%= mbd.thumbnail_width %>px; height: auto;" />
+                <% } %>
+                <div class="media">
+                    <% if(mbd.thumbnail_url && mbd.thumbnail_width < 250 ) { %>
+                        <img class="media-object thumbnail" src="<%= mbd.thumbnail_url %>" style="width: 100%; max-width: <%= mbd.thumbnail_width %>px; height: auto;" />
+                    <% } %>
+                    <div class="media-body">
+                        <h4 class="media-heading"><%= mbd.title %> <small>by <%= mbd.provider_name %></small></h4>
+
+                        <% var cur_url = (mbd.url) ? mbd.url : mbd.original_url; %>
+                        
+                        <% if(cur_url){ %>
+                            <p><a href="<%= mbd.url %>">
+                                <%= cur_url.substr(0,55) %><%= (cur_url.length > 55) ? '...' : '' %>
+                            </a></p>
+                        <% } %>
+
+                        <% if(mbd.description && mbd.description.length){ %>
+                            <div class="well well-sm">
+                                <p><%= mbd.description %></p>
+                            </div>
+                        <% } %>
+                    </div>
+                </div> 
+            <% } %>
+
+            <!-- Traitement des photo -->
+            <% if(mbd.type == 'photo') { %>
+                <% if(mbd.url) { %>
+                    <img class="thumbnail" src="<%= mbd.url %>" style="width: 100%; max-width: <%= mbd.width %>px; height: auto;" />
+                <% } else if(mbd.thumbnail_url) { %>
+                    <img class="thumbnail" src="<%= mbd.thumbnail_url %>" style="width: 100%; max-width: <%= mbd.thumbnail_width %>px; height: auto;" />
+                <% } %>
+            <% } %>
+
+            <!-- Traitement des vidéos -->
+            <% if(mbd.type == 'video') { %>
+                <%= mbd.html %>
+            <% } %>
+
+            <!-- Traitement des rich-medias -->
+            <% if(mbd.type == 'rich') { %>
+                <div class="richmedia"></div>
+            <% } %>
+        </div>
+    </div> <!-- #preselect  -->
+<% } %>
