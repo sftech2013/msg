@@ -1,0 +1,128 @@
+
+<div class="section">
+	<form role="form" class="info-form form-horizontal">
+	    <div class="section-content">
+	    	<div class="row display-box">
+				
+				<div class="col-sm-4 left-box">
+				<% if(preview){ %>
+					<div class="preloader">
+						<div class="preloader-cont"></div>
+					</div>
+					<img class="theme-preview" src="<%= preview %>?reload=<%= moment().unix() %>" />
+					<div class="resolution-bloc">
+						<input type="text" name="options[preview][width]" value="1024" class="preview-width form-control input-sm" dest="preview" />
+						<span class="separator">x</span>
+						<input type="text" name="options[preview][height]" value="768" class="preview-height form-control input-sm" dest="preview" />
+					</div>
+				<% } %>
+				</div>
+
+				<div class="col-sm-8 right-box">
+					<% if(bucket){ %>
+					<div id="bucketManager" class="pull-right">
+						
+						<div class="btn-group" role="group" aria-label="...">
+						  <button type="button" class="btn btn-blacky btn-sm" title="Votre bucket S3"><%= bucket %></button>
+						  <button type="button" class="bucket-dwl btn btn-blacky btn-sm" title="Téléchargez ce thème depuis votre bucket S3"><span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span></button>
+						  <button type="button" class="bucket-up btn btn-blacky btn-sm" title="Uploader ce thème dans votre bucket S3"><span class="glyphicon glyphicon-cloud-upload" aria-hidden="true"></span></button>
+						</div>
+					</div>
+					<% } %>
+					<h3><%= name %> <small><%= version %></small></h3>
+
+					<div class="form-group">
+					    <label for="InputName" class="col-sm-3 control-label">Nom</label>
+					    <div class="col-sm-9">
+					        <input id="InputName" type="text" name="name" class="form-control" value="<%= name %>" />
+					    </div>
+					</div>
+
+					<div class="form-group">
+					    <label for="InputDescription" class="col-sm-3 control-label">Description</label>
+					    <div class="col-sm-9">
+					        <input id="InputDescription" type="text" name="description" class="form-control" value="<%= description %>" />
+					    </div>
+					</div>
+
+					<button id="btnCompile" type="submit" class="btn btn-blacky btn-md btn-block" disabled="disabled">Modifiez d'abord le thème</button>
+					<div class="alert alert-danger alert-submit"></div>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="section-content">
+			<h3>Couleurs du Thème</h3>
+			<p>Adaptez les couleurs principales à votre convenance puis enregistrez votre thème en cliquant sur le bouton 'compilation'. Tous les live utilisant  ce thème se mettront à jour en live.</p>
+			<p>Ces variables peuvent aussi être utilisées dans les fichiers '.less' votre thème: modifiez manuellement les fichiers 'variables.less' et 'css.less' puis lancez la compilation de votre feuille de style en utilsant la commande 'grunt' dans votre console.</p>
+
+			<div id="color-widgets" class="row">
+				<div id="brand-primary" class="color-picker-field col-sm-4"></div>
+				<div id="link-color" class="color-picker-field col-sm-4"></div>
+				<div id="text-color" class="color-picker-field col-sm-4"></div>
+				<div id="brand-danger" class="color-picker-field col-sm-4"></div>
+				<div id="brand-info" class="color-picker-field col-sm-4"></div>
+				<div id="brand-success" class="color-picker-field col-sm-4"></div>
+			</div>
+
+		</div>
+		
+
+		<div class="section-content">
+			<!-- <h3>Thème</h3> -->
+
+			<h3>Logo</h3>
+			<div class="form-group">
+				<label class="col-sm-2 control-label"></label>
+			    <div id="selectLogo" class="col-sm-2 list-files"></div>
+			    <div id="logo-bg" class="color-picker-field col-sm-8"></div>
+			</div>
+
+
+			<h3>Arrière plan</h3>
+			<div class="form-group">
+				<label class="col-sm-2 control-label"></label>
+			    <div id="body-bg" class="color-picker-field col-sm-10"></div>
+			</div>
+
+			<h3>Messages</h3>
+			<div class="form-group">
+			    <label class="col-sm-2 control-label"></label>
+			    <div id="msg-bg" class="color-picker-field col-sm-10"></div>
+			</div>
+			<div class="form-group">
+				<!-- <label class="col-sm-2 control-label"></label> -->
+				<!-- <div id="msg-border" class="color-picker-field col-sm-10"></div> -->
+			</div>
+			<div class="form-group">
+			    <label class="col-sm-2 control-label"></label>
+
+			    <div id="msg-border" class="color-picker-field col-sm-5"></div>
+
+			    <div class="col-sm-5 radius-field">
+			    	<div>
+				    	<label class="control-label">@msg-radius</label><br/>
+				        <input type="text" dest="styles" name="options[styles][msg-radius]" styles-name="msg-radius" id="InputMsgradius" class="form-control" value="<%= options.styles['msg-radius'] %>" />
+			        </div>
+			    </div>
+			</div>
+
+			<h3>Informations</h3>
+			<div class="form-group">
+			    <label class="col-sm-2 control-label"></label>
+			    <div id="info-bg" class="color-picker-field col-sm-10"></div>
+			</div>
+		</div>
+	</form>
+
+	<div class="section-content">
+		<h3>Upload de fichiers</h3>
+		<form id="logoForm" action="/theme/<%= identifier %>/upload" method="post" enctype="multipart/form-data">
+			<input type="file" name="image" class="file-image">
+			<input type="submit" value="Upload" class="upload-btn btn btn-warning">
+		</form> 
+	</div>
+
+</div>
+

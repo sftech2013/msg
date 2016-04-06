@@ -1,0 +1,104 @@
+<div class="vertical-align-center">
+    <div class="modal-dialog <%= prefs.size %>">
+        <div class="modal-content">
+
+            <div class="modal-body jumbotron">
+
+                <!-- Message texte  -->
+
+                <% if(prefs.text) { %>
+                <!-- <div class="container"> -->
+                    <div class="media">
+                        <a class="pull-left" href="#">
+                            <img class="media-object" src="<%= avatar %>" alt="...">
+                        </a>
+                        <div class="media-body">
+                            <h3 class="media-heading">
+                                <a href="http://twitter.com/<%= author %>" target="_blank">
+                                    <%= author %>
+                                </a> 
+                                <small><%= ctime_str %></small>
+                            </h3>
+                            <p><%= message_html %></p>
+                        </div> 
+                    </div>
+                <!-- </div> -->
+                <% } %>
+
+                <!-- Media Twitter -->
+
+                <% if(preselec && preselec.type == 'media' && medias.length && prefs.media){ %>
+                    <%= prefs.text ? '<hr style="margin-top: 5px;" />' : '' %>
+                    <!-- <div id="preselect" class="container"> -->
+                        <!-- <div class="row"> -->
+                            <img class="target" src="<%= medias[0].media_url %>" style="width: <%= final_width %>px; height: <%= final_height %>px;" />
+                        <!-- </div> -->
+                    <!-- </div> -->
+                <% } %>
+
+                <!-- Links Embedly -->
+
+                <% if(preselec && preselec.type == 'link' && links[preselec.index] && prefs.media){ %>
+                    
+                    <% var mbd = links[preselec.index]['embedly'] || links[preselec.index].get('embedly'); %>
+                    <% if(mbd.type == 'link' || mbd.type == 'photo') { %>
+                    <!-- <div id="preselect" class="container"> -->
+                        <!-- <div class="row poster"> -->
+                        <div id="preselect">
+                            <img class="target" src="<%= mbd.thumbnail_url %>" style="width: <%= final_width %>px; height: <%= final_height %>px;" />
+                        </div>
+                        <!-- </div> -->
+                    <!-- </div> -->
+                    <% } %>
+                    <% if(mbd.type == 'video') { %>
+                    <div id="preselect">
+                        <%= mbd.html %>
+                    </div>
+                    <% } %>
+                    <% if(mbd.type == 'rich') { %>
+                    <div id="preselect">
+                        <div class="richmedia"></div>
+                    </div>
+                    <% } %>
+                        
+                <% } %>
+
+
+            </div>
+
+            <!-- Card Twitter (mbd link) -->
+            <!-- tout ca pour sortir du jumbotron ... -->
+            <!-- @todo: il faudra bien choisir, soit on garde et c'est à bosser, soit on dégage /// -->
+            <% if(preselec && preselec.type == 'link' && links[preselec.index] && prefs.media){ %>
+            <% var mbd = links[preselec.index]['embedly'] || links[preselec.index].get('embedly'); %>
+            <div class="container" style="display: none;">
+                <div class="row card">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+
+                            <!-- Card Traitement du visuel en thumbnail avec title, desc, lien -->
+                            <div class="media">
+                                <% if(mbd.type == 'link' || mbd.type == 'photo') { %>
+                                    <% if(mbd.thumbnail_url && mbd.thumbnail_width < 250 ) { %>
+                                        <a class="pull-left" href="#">
+                                            <img class="media-object thumbnail" src="<%= mbd.thumbnail_url %>" style="width: 100%; max-width: <%= mbd.thumbnail_width %>px; height: auto;" />
+                                        </a>
+                                    <% } %>
+                                <% } %>
+                                <div class="media-body">
+                                    <h4 class="media-heading"><%= mbd.title %> <small>by <%= mbd.provider_name %></small></h4>
+                                    <!-- <small><%= mbd.url %></small> -->
+                                    <div class="well well-sm"><p><%= mbd.description %></p></div>
+                                </div>
+                            </div> <!-- .media-body  -->
+
+                        </div> <!-- .panel-body  -->
+                    </div> <!-- .panel  -->
+                </div> <!-- .row  -->
+            </div> <!-- .container -->
+            <% } %>
+
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+

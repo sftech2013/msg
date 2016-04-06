@@ -1,0 +1,76 @@
+
+<div class="page-header">
+  <h2>Live <small>Edition des informations et de la configuration d'un live</small></h2>
+</div>
+
+<h3 class="sub-title">Informations générales</h3>
+
+<div class="section">
+    <div class="section-content">
+
+        <form role="form" id="fullFormRace" class="form-horizontal">
+            <div class="form-group">
+                <label for="inputTag" class="col-sm-2 control-label">Hashtags</label>
+                <div class="col-sm-10">
+                    <input id="inputTag" type="text" name="hashtag" class="form-control" placeholder="#hashtag, #motcles" tabindex="1" value="<%= hashtag_str %>">
+                    <span class="help-block">Les hashtags et mots-clés de votre recherche séparés par une virgule</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="formTitle" class="col-sm-2 control-label">Titre</label>
+                <div class="col-sm-10">
+                    <input type="text" name="title" class="form-control" id="formTitle" placeholder="<%= default_race.title %>" tabindex="2" value="<%= title %>">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="formPhone" class="col-sm-2 control-label">Tel. SMS</label>
+                <div class="col-sm-10">
+                    <input type="text" name="phone_number" class="form-control" id="formPhone" placeholder="<%= default_race.phone_number %>" tabindex="3" value="<%= phone_number %>">
+                    <span class="help-block">N° de téléphone à utiliser pour envoyer des SMS sur le Live</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="formDesc" class="col-sm-2 control-label">Description</label>
+                <div class="col-sm-10">
+                    <input type="text" name="desc" class="form-control" id="formDesc" placeholder="<%= default_race.desc %>" tabindex="4" value="<%= desc %>">
+                    <span class="help-block">Message d'information de votre Live public</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="formThemes" class="col-sm-2 control-label">Thème par défaut</label>
+                <div class="cont_themes col-sm-10"></div>
+            </div>
+
+
+            <button id="submitFormRace" class="btn btn-success" type="submit" tabindex="5"><span class="glyphicon glyphicon-search"></span> Enregistrer</button>
+            <a href="#filter/status/started,stopped" class="backDash btn btn-warning" tabindex="5" style="display: none;"><span class="glyphicon glyphicon-search"></span> Retour au Dashboard</a>
+            
+
+            <div class="pull-right">
+
+                <% if(!is_new){ %>
+                    <a href="/wall/<%= _id %>" target="_blank" class="link-wall btn btn-warning"><span class="glyphicon glyphicon-new-window"></span> Ouvrir le Live public</a>
+                <% } %>
+            </div>
+        </form>
+    </div>
+</div>
+
+<% if(!is_new){ %>
+<h3 class="sub-title">Suppression</h3>
+
+<div class="section">
+    <div class="section-content">
+        <p>Les messages présents sur plusieurs Live simultanément ne seront supprimés que pour ce Live</p>
+        <a href="javascript://void(0);" class="remove-messages btn btn-default"><span class="glyphicon glyphicon-trash"></span> Supprimer les messages</a>
+        <hr/>
+        <p>Suppression du Live et de tous les messages associés. Comme précédement, les messages présents sur plusieurs Live simultanément ne seront supprimés que pour ce Live</p>
+        <a href="javascript://void(0);" class="delete-wall btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Supprimer le Live et tous les messages associés</a>
+    </div>
+</div>
+<% } %>
+

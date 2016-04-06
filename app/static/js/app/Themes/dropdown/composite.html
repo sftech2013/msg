@@ -1,0 +1,14 @@
+<div class="btn-group">
+    <button type="button" class="btn btn-blacky active dropdown-toggle" data-toggle="dropdown">
+        Thème actuel : <strong><span class="active-theme"><%= theme %></span></strong> <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu"></ul>
+    <input type="hidden" name="theme" class="form-control" id="formTheme" value="<%= theme %>">
+</div>
+<% if(is_designer){ %>
+<div class="btn-group">
+	<div class="link-editor">
+		<a href="javascript:void(0);" class="btn btn-blacky">Editer ce thème</a>
+	</div>
+</div>
+<% } %>
