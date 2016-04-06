@@ -1,0 +1,57 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7 ui-mobile-rendering" lang="en"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8 ui-mobile-rendering" lang="en"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9 ui-mobile-rendering" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js ui-mobile-rendering" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <META HTTP-EQUIV="Expires" CONTENT="-1">
+    <title>{{ app_title }}</title>
+    <meta name="description" content="Créez vos propres streams publics pour un affichage temps réel de messages SMS et de tweets sur de multiples supports: Vidéo-projection, Écran géant, TV connectée, Chromecast, appareils Android, et autres objets connectés">
+    <!-- Mobile viewport optimized: h5bp.com/viewport -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+    {%- block css %}{% endblock -%}
+    <link rel="stylesheet" type="text/css" href="{{ theme_static('styles.min.css') }}?reload={{ ts }}"/>
+    <!-- <script type="text/javascript" src="/static/js/vendor/require.min.js" data-main="/static/js/app/Wall/Init.js"></script> -->
+    <script type="text/javascript" src="/static/js/vendor/require.min.js" data-main="/static/js/app/Wall/config.js"></script>
+    {%- block js_link %}{% endblock -%}
+</head>
+<body>
+{%- with messages = get_flashed_messages(category_filter=["error"]) %}
+    {% if messages %}
+    <div class="container flashes">
+        {% for message in messages %}
+        <div class="alert alert-danger alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+{% endwith -%}
+{% block body %}{% endblock %}
+
+<script type="text/template" id="tpl_info">
+{% include theme('info.html', false) %}
+</script>
+
+{% block js_script %}{% endblock %}
+
+<script type="text/javascript">
+current_race = "{{ race_id }}";
+home_timeline = {{ home_timeline|safe }};
+settings = {{ settings|safe }};     // Ne semble plus servir
+stream_status = {{ stream_status|safe }};
+level = '{{ level }}';
+screenshot = {{ screenshot|lower|safe }};
+debugging = {{ config.DEBUG|lower|safe }};
+</script>
+
+</body>
+</html>

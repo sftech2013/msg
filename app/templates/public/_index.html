@@ -1,0 +1,31 @@
+{% extends "public/layout.html" %}
+{%- block css %}
+<style type="text/css"></style>
+{% endblock -%}
+
+{% block body %}
+<div id="visualPing"></div>
+<div id="main" class="container-fluid">
+	<div id="layoutWall" class="row">
+		<div class="col-left">
+			<div class="row">
+				<div id="Logo">
+					<img src="{{ theme_get_info('logo').path }}" class="logo" />
+				</div>
+				
+				<div id="Infos">
+					<!-- Bloc Infos: message d'information du wall -->
+				</div>
+			</div>
+		</div>
+		<div id="Feeder">
+			<!-- Bloc Feeder: le fil de messages -->
+		</div>
+	</div>
+</div>
+<div id="bubble"></div>
+{% endblock %}
+
+{% block js_script %}
+<script type="text/javascript"></script>
+{% endblock %}

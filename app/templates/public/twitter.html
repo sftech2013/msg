@@ -1,0 +1,24 @@
+{% extends "/layout.html" %}
+{% block css %}
+<style>
+    body { background: url('{{ twitter_account.profile_background_image_url_https|safe }}'); }
+    a { color: #{{ twitter_account.profile_link_color }}; }
+</style>
+{% endblock %}
+{% block js_link %}
+<script type="text/javascript" src="/static/js/vendor/require.min.js" data-main="/static/js/app/config/Init.js"></script>
+{% endblock %}
+
+{% block body %}
+<div id="main" class="container"></div>
+<div id="bubble"></div>
+{% endblock %}
+
+{% block js_script %}
+<script type="text/javascript">
+stream_status = {{ stream_status|safe }};
+// présent mais ne sert sans doute meme pas,
+twitter_account = {{ twitter_account|safe }};
+level = '{{ level }}';
+</script>
+{% endblock %}

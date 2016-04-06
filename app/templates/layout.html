@@ -1,0 +1,39 @@
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7 ui-mobile-rendering" lang="en"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8 ui-mobile-rendering" lang="en"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9 ui-mobile-rendering" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js ui-mobile-rendering" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>{{ app_title }}</title>
+    <meta name="description" content="Créez vos propres streams publics pour un affichage temps réel de messages SMS et de tweets sur de multiples supports: Vidéo-projection, Écran géant, TV connectée, Chromecast, appareils Android, et autres objets connectés">
+    <!-- Mobile viewport optimized: h5bp.com/viewport -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+    {% block css %}
+    <link rel="stylesheet" type="text/css" href="/static/css/admin.css"/>
+    {% endblock %}
+    {% block js_link %}{% endblock %}
+</head>
+<body>
+{%- with messages = get_flashed_messages(category_filter=["error"]) %}
+    {% if messages %}
+    <div class="container flashes">
+        {% for message in messages %}
+        <div class="alert alert-danger alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+{% endwith -%}
+{% block body %}{% endblock %}
+
+{% block js_script %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{%- block body %}
+<div id="main" class="section">
+    <div class="section-content">
+        <div class="page-header">
+            <a href="{{ url_for('user.login') }}" class="pull-right btn btn-blacky">Login</a>
+            <h2>Création de compte<small></small></h2>
+        </div>
+
+        <form action="" method="post" role="form" class="form-horizontal">
+
+            <div class="form-group">
+                <label for="username" class="col-sm-2 control-label">Login</label>
+                <div class="col-sm-4">
+                    <input type="text" id="username" name="username" class="form-control" placeholder="Entrez votre login" value="{{ request.form.username }}" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="col-sm-2 control-label">Password</label>
+                <div class="col-sm-4">
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Entrez votre mot de passe" value="{{ request.form.password }}" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-4">
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Entrez votre email" value="{{ request.form.username }}" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-4">
+                    <button type="submit" class="btn btn-success">Inscription</button>
+                    <a href="{{ url_for('home') }}" class="btn btn-blacky">Annuler</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="/static/css/admin.css"/>
+<style type="text/css">
+body {
+    background: url("/static/img/bg_masked_50.png") repeat scroll 0 0 #595959;
+}
+</style>
+{% endblock %}
+{% block js_link %}
+<script src="/static/js/vendor/socket.io.min.js"></script>
+{% endblock %}
+
+{%- block body %}
+<div id="main" class="container section waiting-section">
+    <div class="section-content">
+        <div id="visualPing" class="pull-right" style="display: none;">
+            Pong!
+        </div>
+
+        <div class="intro">
+            <p class="pull-right"><a id="adminBtn" href="{{ url_for('admin.admin') }}" class="btn btn-blacky active">Administrez vos live</a></p>
+            <h2>
+                Bienvenue sur {{ app_title }} 
+                <small>Le stream est actuellement <span id="status-stream" class="label label-default"></span></small>
+            </h2>
+            {{ app_desc|safe }}
+        </div>
+    </div>
+</div>
+{%- endblock %}
+
+{%- block js_script %}
+<script type="text/javascript">
+
+var stream_status = {{ stream_status|safe }};
+var stream_label = document.getElementById("status-stream");
+if(stream_status.status == "stopped"){
+    stream_label.className = "label label-danger";
+    text = document.createTextNode('arrêté');
+    stream_label.appendChild(text);
+}else if(stream_status.status == "started"){
+    stream_label.className = "label label-success";
+    text = document.createTextNode('démarré');
+    stream_label.appendChild(text);
+}
+
+var socket = io.connect("/shouts");
+var visualPing = document.getElementById("visualPing");
+
+socket.on("connect", function () {
+    console.log("Connexion établie avec le serveur, %o", this);
+
+    // ne devrait etre qu'un seul event ?
+    socket.emit("join_only", "waiting");
+    socket.emit("waiting", "A screen is waiting");
+
+    socket.on("ping", function(msg){
+        visualPing.style.display = "block";
+        setTimeout(function(){
+            visualPing.style.display = "none";
+        }, 5000);
+    });
+
+    socket.on("gotourl", function(url){
+        socket.emit("leave","waiting");
+        document.location.href = url;
+    });
+
+    window.leave = function(){
+        socket.emit("leave","waiting");
+    }
+    
+    document.getElementById("adminBtn").onclick=function(){
+        socket.emit("leave","waiting");
+    };
+
+});
+
+window.onunload = function(){
+    window.leave();
+}
+
+window.onbeforeunload = function(){
+    window.leave();
+}
+</script>
+{% endblock %}
+

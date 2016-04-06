@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="/static/css/spectrum.css"/>
+<link rel="stylesheet" type="text/css" href="/static/css/admin.css"/>
+{% endblock %}
+{% block js_link -%}
+	<script type="text/javascript" src="/static/js/vendor/require.min.js" data-main="/static/js/app/config/Init.js"></script>
+{%- endblock %}
+
+{% block body %}
+	<header class="navbar navbar-fixed-top navbar-inverse" role="navigation"></header>
+	<div id="main"></div>
+	<div id="bubble"></div>
+{% endblock %}
+
+{% block js_script %}
+<script type="text/javascript">
+server_info = {{ server_info|safe }};
+settings = {{ settings|safe }};
+races = {{ races|safe }};
+default_race = {{ config.PUBLIC_CONFIG|safe }};
+{%- if stream_status %}
+stream_status = {{ stream_status|safe }};
+twitter_account = {{ twitter_account|safe }};
+{% endif -%}
+themes = {{ themes|safe }};
+level = '{{ level }}';
+is_admin = {{ is_admin|lower|safe }};
+bucket = '{{ bucket|safe }}'
+debugging = {{ config.DEBUG|lower|safe }};
+designer = {{ config.DESIGNER|lower|safe }};
+</script>
+{% endblock %}
