@@ -1,0 +1,644 @@
+@import url("bootstrap.admin.min.css");
+/*@import url("nanoscroller.css");*/
+
+/*.nano > .nano-pane > .nano-slider {
+    background-color: #43C7F4;
+}*/
+
+
+
+header {
+    box-shadow: 6px 0 8px rgba(0, 0, 0, 0.698);
+}
+
+header.navbar-inverse:after {
+    background-image: url("/static/img/neige.png");
+    bottom: 0;
+    content: "";
+    display: block;
+    left: 0;
+    opacity: 0.35;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+header.navbar-inverse > div {
+    position: relative;
+    z-index: 2;
+}
+
+header .navbar-header .navbar-brand {
+    color: #43C7F4;
+    font-size: 26px;
+}
+
+
+/* box de gestion du Stream Twitter dans le Header, à déplacer */
+
+#HeaderBox .HBTwitter div.stream-state-label {
+    display: inline-block;
+}
+
+
+/*      Header - Nav            */
+
+#Nav .btn-blacky.badge {
+    background-color: #181818;
+    color: #3A3A3A;
+}
+
+#Nav .btn-blacky.badge.active {
+    color: #43c7f4;
+    background-color: #121212;
+}
+
+
+
+
+/*           Home                   */
+
+.waiting-section .intro h2 {
+    color: #43c7f4;
+    margin-bottom: 20px;
+}
+
+
+
+#DashMain .page-header {
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 10px 0 10px 45px;
+    background-color: #717171;
+    border-bottom-color: #484848;
+    height: 53px;
+}
+
+#DashMain .page-header small {
+    color: #ccc;
+}
+
+#DashMain .page-header h2, #DashMain .page-header h3 {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+#DashMain .page-header h2{
+    font-size: 28px;
+    line-height: 28px;
+}
+
+#DashMain h3.sub-title {
+    margin-left: 25px;
+}
+
+.jumbotron, .well {
+    margin-top: 30px;
+    padding:19px;
+    color: #555;
+}
+
+.jumbotron h1, .well h1 {
+    margin-top: 0;
+    font-size: 36px;
+    color: #555;
+}
+
+
+
+/* media list générique */
+.media, .media .media {
+    margin-top: 0;
+}
+
+.media .media-body p {
+    margin: 0 0 5px;
+}
+
+
+
+
+#DashMain #DashMaster .page-header {
+    /*height: 50px;*/
+    /* tsss écrase sans raison ce qui est défini pour #DashMain .page-header */
+    /*padding: 0;*/
+    padding: 0 15px 0 0;
+}
+
+/* attributs width, margin, padding devraient être sur DashMaster */
+#twitterStatus{
+    width: 80%;
+    margin: 10px 0 0 35px;
+}
+
+#twitterStatus .container-avatar {
+    padding: 0;
+    max-width: 36px;
+}
+
+#twitterStatus .avatar{
+    width: 34px;
+    height: auto;
+    padding: 2px;
+}
+
+#twitterStatus #count-tweet-length {
+    background-color: transparent;
+    border: 1px solid transparent;
+    box-shadow: none;
+    font-weight: normal;
+    padding: 0;
+    width: 30px;
+    display: none;
+    color: #aaa;
+    cursor: default;
+}
+
+#twitterStatus #count-tweet-length.toolong {
+    color: #D43F3A;
+}
+
+
+
+/* alert flottante */
+/* devrait etre soit dan*/
+
+/*.Counter {
+    width: 100%;
+    position: absolute;
+    padding-right: 10px;
+}
+
+.Counter .cont-counter {
+    background-color: rgba(220, 0, 0, 0.7);
+    color: #EFEFEF;
+    display: none;
+    padding: 10px;
+    position: relative;
+    margin: 0;
+    text-align: center;
+    width: auto;
+    z-index: 200;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.Counter .cont-counter a {
+    color: #FFFFFF;
+    text-decoration: underline;
+}
+
+.Counter .cont-counter:hover {
+    background-color: #D9534F;
+    cursor: pointer;
+}*/
+
+/*                   Dash     #col-menu | #col-content              */
+
+.Dash {
+	border: 0 none;
+    height: 100%;
+    margin: 0;
+    max-height: 100%;
+    /*overflow: hidden;*/
+    overflow: visible;
+    padding-top: 0;
+    padding-bottom: 0;
+/*    padding-left: 15px;
+    padding-right: 15px;*/
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.Dash > .row {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+
+.Dash > .row > #col-content {
+    display: block;
+    /*margin-left: 350px;*/
+    margin-left: 320px;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.Dash > .row > #col-content:before, .Dash > .row > #col-content:after {
+    box-sizing: border-box;
+}
+
+/*            ColMenu             */
+
+/*.Dash > .row > #col-menu {
+    display: block;
+    float: left;
+    box-sizing: border-box;
+    margin: 0;
+    height: 100%;
+    box-shadow: 2px 0 4px rgba(0, 0, 0, 0.5);   
+    position: fixed;
+    width: 320px;
+    z-index: 200;
+    background-color: #222;
+    color: #4A4A4A;
+    overflow: auto;
+}
+
+
+.Dash > .row > #col-menu:before, .Dash > .row > #col-menu:after {
+    box-sizing: border-box;
+    background-image: url("/static/img/neige.png");
+    bottom: 0;
+    content: "";
+    display: block;
+    left: 0;
+    opacity: 0.35;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.Dash > .row > #col-menu .menu-content{
+    position: relative;
+    z-index: 2;
+}
+
+
+.Dash > .row > #col-menu .col-menu-header h3 {
+    margin: 10px 15px 15px;
+    color: #666;
+    font-size: 19px;
+    line-height: 27px;
+}
+
+
+.Dash > .row > #col-menu .col-menu-header a {
+    color: #43c7f4;
+}
+*/
+
+/*           .racer     - items de ColRace */
+/*
+#col-menu .racer {
+    background-color: #2b2b2b;
+    border-top: 1px solid #383838;
+    border-bottom: 1px solid #222;
+    border-right: 0;
+    border-left: 0;
+    color: #fff;
+    padding: 8px 6px;
+    margin-bottom: 0;
+    
+}
+
+#col-menu .racer .media-body {
+    display: list-item;
+}
+
+#col-menu .racer.started {
+    background: #333 none;
+    border-top: 1px solid #444;
+}
+
+
+
+
+#col-menu .racer:first-child, #col-menu .racer:last-child {
+    border-radius: 0;
+}
+
+
+#col-menu .racer .media-heading {
+    margin: 3px 0 10px 5px;
+    font-size: 16px;
+    color: #AAAAAA;
+}
+
+
+#col-menu .racer .media-heading .stop, #col-menu .racer .media-heading .start {
+    margin-top: -4px;
+}
+
+#col-menu .racer .media-heading .title {
+    padding: 0 5px;
+    display: inline;
+}
+
+#col-menu .racer .media-heading .badge {
+    display: inline;
+    padding: 1px 5px;
+    font-size: 10px;
+    margin-left: 5px;
+    opacity: 0.8;
+}
+
+
+#col-menu .racer.started .media-heading {
+    color: #FFFFFF;
+}
+*/
+
+/* 
+attention, meme path
+#col-menu .racer ul.tag-list 
+fusionner ?
+*/
+
+/*
+#col-menu .racer .label {
+    background-color: #3C3C3C;
+    color: #999;
+    font-size: 11px;
+    font-weight: normal;
+    padding: 0 5px 2px;
+}
+
+#col-menu .racer .label.label-light {
+    background-color: #555;
+    color: #aaa;
+}
+*/
+/*
+.Dash > .row > #col-menu:before, .Dash > .row > #col-menu:after {
+    box-sizing: border-box;
+}
+
+
+#col-menu .racer ul.tag-list{
+    list-style: none;
+    padding-left: 0;
+}
+
+#col-menu .racer ul.tag-list li{
+    float: left;
+    margin-right: 5px;
+}
+
+
+#col-menu .racer .grippy{
+    background: url("/static/img/grip-dark.png") repeat scroll left top rgba(0, 0, 0, 0);
+    display: block;
+    height: 56px;
+    margin-right: 5px;
+    width: 13px;
+    cursor: move;
+}
+
+
+#col-menu .racer.ui-sortable-helper{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+#col-menu .racer .racer-tools {
+    opacity: 0.65;
+}
+
+#col-menu .racer:hover .racer-tools {
+    opacity: 1;
+}
+
+
+#col-menu .racer .racer-tools .btn-default {
+    background-color: #444;
+    border-color: #555;
+    color: #888;
+    padding: 2px 5px 0;
+}
+
+#col-menu .racer .racer-tools .btn-default:hover {
+    color: #ddd;
+}
+
+
+
+
+#col-menu .racer .monitor-group .monitor {
+    background-color: #333;
+    border-color: #333;
+    color: #666;
+}
+
+#col-menu .racer .monitor-group.active .monitor {
+    background-color: #2a2a2a;
+    border: 1px solid #2a2a2a;
+    color: #aaa;
+}
+
+#col-menu .racer .monitor-group.active:hover .monitor {
+    background-color: #272727;
+    color: #FFF;
+}
+
+*/
+
+
+/*           Toggle du ColMenu et du DashMaster */
+
+#tog-col-menu {
+    background-color: #222;
+    border-radius: 0 4px 4px 0;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    float: left;
+    /*margin: 11px 0 12px -15px;*/
+    margin: 11px 0 12px -10px;
+    padding: 3px 15px 6px;
+    position: fixed;
+    width: 35px;
+    z-index: 12;
+}
+#tog-col-menu span {
+    top: 3px;
+}
+
+/*            DashMaster          */
+
+#DashMaster {
+    background-color: #595959;
+    margin-bottom: 0;
+    border-radius: 0;
+    border: none;
+    height: 65px;
+}
+
+#DashMaster .send-tweet {
+    background-color: #666;
+    border: 1px solid #8B8B8B;
+    color: #D7D7D7;
+}
+
+#DashMaster #body-tweet {
+    background-color: #545454;
+    border: 1px solid #8B8B8B;
+    color: #D7D7D7;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.40) inset;
+    width: 100%;
+}
+
+#DashMaster #body-tweet:focus {
+    color: #FFF;
+}
+
+/* boutons de scroll horizontal du DashMaster */
+
+#DashMaster .btn-dashmaster a{
+    color: #fff;
+}
+
+
+/* liste interne du dropDown */
+#dashMasterList {
+    min-width: 280px;
+}
+
+
+/*            Dashboard - colonnes et sortables */
+
+#DashBoard {
+    overflow-x: auto;
+    font-size: 13px;
+    padding-left: 15px;
+    height: 100%;
+}
+
+#DashBoard > .row {
+    margin-right: 0;
+}
+
+/* qui s'avère devenir un .col-sm-x ... */
+#DashBoard > div > [class^="col-sm-"] {
+    float: left;
+    /*min-width: 350px;*/
+    padding-right: 0;
+    padding-left: 15px;
+}
+
+#DashBoard > div > [class^="col-sm-"]:last-child {
+    padding-right: 15px;
+}
+
+#DashBoard > div > [class^="col-sm-"].ui-sortable-helper {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    padding-left: 0;
+    padding-right: 0;
+    background-color: #333;
+    /*width: 400px;*/
+}
+
+
+
+
+/* Dumbers */
+
+#DumbersContent .dumber-item {
+
+}
+
+#DumbersContent .dumber-item .closer {
+    opacity: 0;
+}
+
+#DumbersContent .dumber-item:hover .closer {
+    opacity: 1;
+}
+
+
+/* Modale */
+
+.modal-header {
+    background-color: #595959;
+    border-bottom: 1px solid #4b4b4b;
+    border-radius: 4px 4px 0 0;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.71);
+    padding: 10px;
+}
+
+.modal-content {
+    background-color: #888;
+    border: none;
+    border-radius: 4px;
+}
+
+.modal-footer {
+    background-color: #595959;
+    border-top: 1px solid #4b4b4b;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.71);
+    margin-top: 0;
+    padding: 10px;
+    text-align: right;
+}
+
+
+/* AdminLayout de la Modale*/
+/* faux ... #preselect est dans le layout des bulles des walls aussi ... */
+
+#preselect {
+    max-width: 100%;
+}
+
+#preselect .poster{
+    /*margin-bottom: 20px;*/
+}
+
+#preselect .thumbnail {
+    margin: 0 auto;
+}
+
+
+
+/* Bubble */
+
+.modal-content .jumbotron {
+    background-color: rgba(0,0,0,0);
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.modal-content .jumbotron .media-body {
+    margin-left: 60px;
+}
+
+.modal-content a:hover{
+    color: #43c7f4;
+    text-decoration: underline;
+}
+
+/* view modale des walls publics */
+
+
+/*.modal-content .jumbotron {
+    padding: 0;
+}*/
+
+/*.modal-content .jumbotron .media-body .target {
+    display: none;
+}*/
+
+#bubble .modal-dialog {
+    /*width: auto;*/
+}
+
+
+
+
+
+/* Home, devices */
+
+#visualPing {
+    position: absolute;
+    z-index: 4;
+    top: 20px;
+    right: 20px;
+}
+
+#waiting img {
+    width: 20px;
+    height: auto;
+}
+
+/* devices tools */
+.form-group.freeUrl {
+    display: none;
+}
+
