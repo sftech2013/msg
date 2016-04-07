@@ -571,7 +571,7 @@ fusionner ?
 
 
 /* AdminLayout de la Modale*/
-/* faux ... #preselect est dans le layout des bulles des walls aussi ... */
+/* faux ... #preselect est dans le layout des bulles des lives aussi ... */
 
 #preselect {
     max-width: 100%;
@@ -604,7 +604,7 @@ fusionner ?
     text-decoration: underline;
 }
 
-/* view modale des walls publics */
+/* view modale des lives publics */
 
 
 /*.modal-content .jumbotron {
