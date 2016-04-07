@@ -26,7 +26,7 @@ define([ 'App', 'backbone', 'marionette', 'underscore', 'models/Race', 'collecti
                 backDash: ".backDash",
                 submitFormRace: "#submitFormRace",
                 removeMessages: '.remove-messages',
-                deleteWall: '.delete-wall',
+                deletelive: '.delete-live',
             },
 
             modelEvents: {
@@ -36,7 +36,7 @@ define([ 'App', 'backbone', 'marionette', 'underscore', 'models/Race', 'collecti
             events: {
                 "submit form": "onSubmitForm",
                 "click @ui.removeMessages": "removeMessages",
-                "click @ui.deleteWall": "deleteWall",
+                "click @ui.deletelive": "deletelive",
             },
             themeSelected: function(){
                 console.log("Nouveau Thème sélectionné");
@@ -69,7 +69,7 @@ define([ 'App', 'backbone', 'marionette', 'underscore', 'models/Race', 'collecti
             removeMessages: function(){
                 // @todo: ca devrait etre une commande, ou au moins une méthode sync sur la collection
                 // on retrouve ça dans Dash.Feed.MsgCollectionView
-                if(confirm("Voulez-vous vraiment supprimer tous les messages de ce Wall ?\n Attention cette action est irréversible")){
+                if(confirm("Voulez-vous vraiment supprimer tous les messages de ce live ?\n Attention cette action est irréversible")){
                     var that = this;
                     var collec = new ItemCollection();
                     console.log(this.model.get('_id'));
@@ -82,8 +82,8 @@ define([ 'App', 'backbone', 'marionette', 'underscore', 'models/Race', 'collecti
                 }
             },
 
-            deleteWall: function(){
-                if(confirm("Voulez-vous vraiment supprimer ce Wall et tous ses messages ?\n Attention cette action est irréversible")){
+            deletelive: function(){
+                if(confirm("Voulez-vous vraiment supprimer ce live et tous ses messages ?\n Attention cette action est irréversible")){
                     this.model.destroy({
                         success: function(model, response){
                             App.vent.trigger('race:removed');

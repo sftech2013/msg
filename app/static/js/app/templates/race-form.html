@@ -53,7 +53,7 @@
             <div class="pull-right">
 
                 <% if(!is_new){ %>
-                    <a href="/wall/<%= _id %>" target="_blank" class="link-wall btn btn-warning"><span class="glyphicon glyphicon-new-window"></span> Ouvrir le Live public</a>
+                    <a href="/live/<%= _id %>" target="_blank" class="link-live btn btn-warning"><span class="glyphicon glyphicon-new-window"></span> Ouvrir le Live public</a>
                 <% } %>
             </div>
         </form>
@@ -69,7 +69,7 @@
         <a href="javascript://void(0);" class="remove-messages btn btn-default"><span class="glyphicon glyphicon-trash"></span> Supprimer les messages</a>
         <hr/>
         <p>Suppression du Live et de tous les messages associés. Comme précédement, les messages présents sur plusieurs Live simultanément ne seront supprimés que pour ce Live</p>
-        <a href="javascript://void(0);" class="delete-wall btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Supprimer le Live et tous les messages associés</a>
+        <a href="javascript://void(0);" class="delete-live btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Supprimer le Live et tous les messages associés</a>
     </div>
 </div>
 <% } %>
