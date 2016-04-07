@@ -95,13 +95,13 @@ define(['jquery', 'backbone', 'marionette', 'underscore', 'socketio', 'Modal/Reg
             // Devices
             ['device_waiting_inc', 'device:waiting:inc'],
             ['device_waiting_dec', 'device:waiting:dec'],
-            ['join_a_wall', 'device:wall:join'],
-            ['leave_a_wall', 'device:wall:leave'],
+            ['join_a_live', 'device:live:join'],
+            ['leave_a_live', 'device:live:leave'],
             // ['device_disconnected', 'device:disconnected'],      // inutilisé, peut servir
             // Dumbers
             ['dumber_added', 'dumber:added'],
             ['dumber_removed', 'dumber:removed'],
-            // Walls
+            // lives
             ['ping', 'remote:ping'],
             ['gotourl', 'remote:gotourl'],
             // Themes

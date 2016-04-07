@@ -17,14 +17,14 @@ define([ 'App', 'marionette', 'underscore', 'Devices/collection', 'Devices/devic
 
 				// @todo: fusionner ces events
 				this.listenTo(App.vent, 'device:waiting:inc', this.onConnected);
-				this.listenTo(App.vent, 'device:wall:join', this.onConnected);
+				this.listenTo(App.vent, 'device:live:join', this.onConnected);
 
 				this.listenTo(App.vent, 'device:disconnected', this.onDisconnected);
-				this.listenTo(App.vent, 'device:wall:leave', this.onLeave);
+				this.listenTo(App.vent, 'device:live:leave', this.onLeave);
 				this.listenTo(App.vent, 'device:waiting:dec', this.onLeave);
 
-				App.commands.setHandler("sendDevice", function(device_id, wallurl){
-					App.socket.emit("send_device_to", device_id, wallurl);
+				App.commands.setHandler("sendDevice", function(device_id, liveurl){
+					App.socket.emit("send_device_to", device_id, liveurl);
 				});
 			},
 

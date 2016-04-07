@@ -2,13 +2,13 @@
 <div class="media-body">
 	<div class="pull-right">
 		<div class="racer-tools btn-group btn-group-xs">
- 			<a class="btn btn-default btn-xs" href="/wall/<%= _id %>/" data-toggle="tooltip" data-placement="bottom" target="_blank" title="Ouvrir le live public">
+ 			<a class="btn btn-default btn-xs" href="/live/<%= _id %>/" data-toggle="tooltip" data-placement="bottom" target="_blank" title="Ouvrir le live public">
 				<span class="glyphicon glyphicon-new-window"></span> 
 			</a>
 			<a class="btn btn-default btn-xs" href="#edit/<%= _id %>" data-toggle="tooltip" data-placement="bottom" title="Modifier">
 				<span class="glyphicon glyphicon-wrench"></span> 
 			</a>
-			<!-- <a class="btn btn-default btn-xs" href="#filter/bundle/<%= _id %>" data-toggle="tooltip" data-placement="bottom" title="Administration du Wall">
+			<!-- <a class="btn btn-default btn-xs" href="#filter/bundle/<%= _id %>" data-toggle="tooltip" data-placement="bottom" title="Administration du live">
 				<span class="glyphicon glyphicon-fullscreen"></span> 
 			</a> -->
 			<% if(is_dashed){ %>

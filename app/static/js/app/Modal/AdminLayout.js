@@ -13,7 +13,7 @@ define( [ 'App', 'marionette', 'moment', 'text!Modal/container-admin.html', 'Mod
                 Richy: "#preselect .richmedia"
             },
 
-            // appel en cascade depuis le layout. Mime le cpt de WallView
+            // appel en cascade depuis le layout. Mime le cpt de liveView
             _onFinishRender: function(){
                 this.model.set('ctime_str', moment(this.model.get('ctime')).format('HH:mm:ss'));
                 var pre = this.model.get('preselec');

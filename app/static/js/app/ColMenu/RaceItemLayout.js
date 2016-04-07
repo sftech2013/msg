@@ -54,8 +54,8 @@ define([ 'App', 'backbone', 'marionette', 'underscore', 'text!ColMenu/race.html'
                 _.bindAll(this, "incItemCount", "drop");
 
                 // plus de listen dans la region concernée, ca fait des conflits entre les views
-                this.listenTo(App.vent, "device:wall:join", this.incDevice);
-                this.listenTo(App.vent, "device:wall:leave", this.decDevice);
+                this.listenTo(App.vent, "device:live:join", this.incDevice);
+                this.listenTo(App.vent, "device:live:leave", this.decDevice);
 
                 this.listenTo(App.vent, "dash:race:remove", this.setRaceRemoved);
             },

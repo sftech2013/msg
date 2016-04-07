@@ -31,8 +31,8 @@ define(["jquery", "backbone", "marionette"],
             },
 
             shownModal: function(view){
-                // déclenchement de _onFinishRender pour le resize des medias dans la view en cours: AdminBodyView vs WallView
-                // plus de référence à l'App/Wall 
+                // déclenchement de _onFinishRender pour le resize des medias dans la view en cours: AdminBodyView vs liveView
+                // plus de référence à l'App/live 
                 this.currentView._onFinishRender();
             },
 
