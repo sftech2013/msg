@@ -16,7 +16,7 @@ PHONE_TOKEN = "_S0m3thiNg$D1FfiCuLt#T0R3memb3r_"
 # MongoDB
 MONGODB_URI="mongodb://localhost:27017/live"
 # Exemple MongoHQ :
-# MONGODB_URI="mongodb://<login>:<password>@oceanic.mongohq.com:10080/bullit"
+# MONGODB_URI="mongodb://<login>:<password>@oceanic.mongohq.com:10080/live"
 
 SERVER_CONFIG = {"host": "127.0.0.1", "port": 8080 }
 
