@@ -74,7 +74,7 @@ def make_preview(url_param, theme, width, height):
 	host = app.config['SERVER_CONFIG']['host']
 	port = app.config['SERVER_CONFIG']['port']
 	hostport = "%s:%s" % (host, port) if port else host
-	url = "http://%s/wall%s" % (hostport, url_param)
+	url = "http://%s/live%s" % (hostport, url_param)
 	# Marche dans le contexte de l'install de dev avec Grunt
 	# local("grunt snap --url=%s --theme=%s --width=%s --height=%s" % (url, ident, width, height))
 	# Là aussi on évite Grunt, on utilise PhantomJs en direct ...

@@ -45,9 +45,9 @@ def home():
     return render_template("home.html")
 
 
-@app.route("/wall/<id>/")
+@app.route("/live/<id>/")
 @nocache
-def main_wall(id):
+def main_live(id):
     race = races.find_one({'_id': ObjectId(id) })
     theme = request.args.get('theme', race['theme'])
     try:
@@ -71,10 +71,10 @@ from app.twitter.models import Tweet
 from flask.ext.restful import marshal
 from app.resources.fields import msg_race_flat
 
-@app.route("/wall")
+@app.route("/live")
 # @login_required
 @nocache
-def wall_default():
+def live_default():
     theme = request.args.get('theme', 'default')
     try:
         home_timeline = TW_Client.api.home_timeline()

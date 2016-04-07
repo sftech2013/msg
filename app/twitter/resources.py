@@ -52,7 +52,7 @@ class Grabber(Resource):
 class Me(Resource):
 
 	# @login_required
-	# non, à cause des vieux template et views /wall/twitter et /wall/timeline, (à surveiller)
+	# non, à cause des vieux template et views /live/twitter et /live/timeline, (à surveiller)
 	def get(self):
 		me = TW_Client.api.me()
 		return me
