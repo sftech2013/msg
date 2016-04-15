@@ -25,6 +25,7 @@
             "msg-bg": "#2b2b2b",
             "msg-border": "1px solid #383838",
             "msg-radius": "4px",
+            "msg-text": "12px" ,
             "text-color": "rgb(179, 179, 179)"
         }
     },
