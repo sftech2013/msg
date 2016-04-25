@@ -1,0 +1,167 @@
+@import "base.less";
+
+body {
+	overflow: hidden;
+	background: @body-bg;
+	&.modal-open {
+		padding-right: 0 !important;
+	}
+}
+
+a {
+	&:hover, &:focus {
+	    text-decoration: underline;
+	}
+	&:focus {
+	    outline: none;
+	}
+}
+
+#main {
+
+	.col-left {
+		.make-sm-column(12);
+		.make-md-column(3);
+
+		#Logo {
+			.make-sm-column(3);
+			.make-md-column(12);
+			img.logo{
+				margin-top: 15px;
+				background: @logo-bg;
+				height: auto;
+				width: 100%;
+			}
+		}
+		
+		#Infos {
+			.make-sm-column(9);
+			.make-md-column(12);
+			margin-top: 15px;
+			& > div {
+				background: @info-bg;
+				padding: 15px;
+				h3 {
+					color: @brand-primary;
+					margin-top: 0; 
+				}
+				.desc {
+					margin-bottom: 15px;
+				}
+				.hashtags, .phone {
+					color: @link-color;
+				}
+			}
+		}
+
+		@media (min-width: @screen-sm-min) { }
+
+		@media (min-width: @screen-md-min) { }
+
+	}
+
+	#Feeder {
+		.make-sm-column(12);
+		.make-md-column(9);
+
+		ul li {
+			padding: 10px;
+			border: none;
+			background: @msg-bg;
+			border: @msg-border;
+			border-radius: @msg-radius;
+			&:first-child {
+				margin-top: 15px;
+			}
+
+			&.inactive {
+				display: none;
+			}
+
+			.media-body {
+				display: block;
+				overflow: hidden;
+			}
+		}
+
+		@media (min-width: @screen-md-min) {
+			padding-left: 0;
+		}
+	}
+}
+
+#visualPing {
+	&> div {
+		position: absolute;
+		z-index: 15000;
+		right: 0;
+		bottom: 0;
+		padding: 10px 30px;
+		background-color: @text-color;
+		color: #333;
+		font-size: 16px;
+		.border-top-radius(10px);
+		.border-right-radius(0);
+	}
+}
+
+
+
+.modal-dialog {
+	background: @msg-bg;
+	border: 5px solid @brand-primary;
+	border-radius: @msg-radius * 2;
+	.modal-content {
+		background-color: transparent;
+		border: medium none;
+
+		.modal-body {
+			padding: 0;
+			&.jumbotron {
+				margin-bottom: 0;
+				background-color: transparent;
+				.media {
+					padding: 25px;
+					.media-body {
+						h3 {
+							font-size: 40px;
+							line-height: 1.2;
+							margin-bottom: 25px;
+						}
+						p {
+							font-size: 30px;
+							// color: #ddd;
+							color: lighten(@text-color, 10%);
+						}
+					}
+				}
+
+			}
+		}
+	}
+}
+
+.vertical-alignment-helper {
+    display:table;
+    height: 100%;
+    width: 100%;
+    // pointer-events:none; /* This makes sure that we can still click outside of the modal to close it */
+}
+.vertical-align-center {
+    /* To center vertically */
+    display: table-cell;
+    vertical-align: middle;
+    // pointer-events:none;
+}
+// .modal-content {
+//      Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it 
+//     width:inherit;
+//     height:inherit;
+//     /* To center horizontally */
+//     margin: 0 auto;
+// }
+
+.modal-backdrop {
+    height: 100%;
+}
+

@@ -1,0 +1,33 @@
+{
+    "application": "Live Message",
+    "author": "sft",
+    "description": "Vous pouvez personnaliser ce thème",
+    "doctype": "html5",
+    "identifier": "default",
+    "name": "Thème par défaut",
+    "options": {
+        "logo": {
+            "path": "/themes/default/img/logo.png"
+        },
+        "preview": {
+            "height": 768,
+            "width": 1024
+        },
+        "styles": {
+            "body-bg": "url(img/bg_masked_50.png) repeat scroll 0 0 #222",
+            "brand-danger": "#d9534f",
+            "brand-info": "rgb(22,180,255)",
+            "brand-primary": "#43C7F4",
+            "brand-success": "#5cb85c",
+            "info-bg": "#222",
+            "link-color": "#43C7F4",
+            "logo-bg": "@brand-primary",
+            "msg-bg": "#2b2b2b",
+            "msg-border": "1px solid #383838",
+            "msg-radius": "4px",
+            "text-color": "rgb(179, 179, 179)"
+        }
+    },
+    "preview": "/themes/default/img/preview.png",
+    "version": "1.0.0"
+}
